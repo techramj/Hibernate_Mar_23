@@ -1,0 +1,135 @@
+com.seed.entities
+	Employee
+	  id,name,salary
+
+com.seed.service
+    interface EmployeeService
+	    Employee addEmployee(Employee emp);
+		Employee addEmployee(int id,String name,double salary);
+		Employee addEmployee(String name,double salary);
+		void deleteEmployee(int id);
+		void updateEmployee(Employee emp);
+		void getEmployee(int id); //difference between get and load
+		List<Employee> getEmployee();
+		
+		
+
+	class EmployeeServiceImpl implements EmployeeService
+	
+com.seed.dao
+    interface EmployeeDao
+	    Employee addEmployee(Employee emp);
+	    Employee addEmployee(int id,String name,double salary);
+		Employee addEmployee(String name,double salary);
+		void deleteEmployee(int id);
+		void updateEmployee(Employee emp);
+		void getEmployee(int id); //difference between get and load
+		List<Employee> getEmployee();
+	
+	
+	class EmployeeDaoImpl implements EmployeeDao
+	
+	
+com.seed.util
+    HibernateUtil
+	   getSessionFactory():SessionFactory (singleton)
+	   close()
+	
+
+
+com.seed.main
+    main(){
+	  test all the api
+	
+	}
+	
+main() -> service -> dao -> db
+
+Loose coupling.
+
+ArrayList<String> names = new ArrayList<>(); //tight coupling
+names = new LinkedList<>(); //error
+
+List<String> names = new ArrayList<>();  //loose coupling
+names = new LinkedList<>();
+
+
+Set<Integer> set = new HashSet<>(); 
+set = new TreeSet<>();
+
+
+Main
+   EmployeeService empService = new EmployeeServiceImpl();
+  
+service  
+   EmployeeDao empDao = new EmployeeDaoImpl();
+   
+dao
+  SessionFactory factory = HibernateUtil.getSessionFactory();com.seed.entities
+	Employee
+	  id,name,salary
+
+com.seed.service
+    interface EmployeeService
+	    Employee addEmployee(Employee emp);
+		Employee addEmployee(int id,String name,double salary);
+		Employee addEmployee(String name,double salary);
+		void deleteEmployee(int id);
+		void updateEmployee(Employee emp);
+		void getEmployee(int id); //difference between get and load
+		List<Employee> getEmployee();
+		
+		
+
+	class EmployeeServiceImpl implements EmployeeService
+	
+com.seed.dao
+    interface EmployeeDao
+	    Employee addEmployee(Employee emp);
+	    Employee addEmployee(int id,String name,double salary);
+		Employee addEmployee(String name,double salary);
+		void deleteEmployee(int id);
+		void updateEmployee(Employee emp);
+		void getEmployee(int id); //difference between get and load
+		List<Employee> getEmployee();
+	
+	
+	class EmployeeDaoImpl implements EmployeeDao
+	
+	
+com.seed.util
+    HibernateUtil
+	   getSessionFactory():SessionFactory (singleton)
+	   close()
+	
+
+
+com.seed.main
+    main(){
+	  test all the api
+	
+	}
+	
+main() -> service -> dao -> db
+
+Loose coupling.
+
+ArrayList<String> names = new ArrayList<>(); //tight coupling
+names = new LinkedList<>(); //error
+
+List<String> names = new ArrayList<>();  //loose coupling
+names = new LinkedList<>();
+
+
+Set<Integer> set = new HashSet<>(); 
+set = new TreeSet<>();
+
+
+Main
+   EmployeeService empService = new EmployeeServiceImpl();
+  
+service  
+   EmployeeDao empDao = new EmployeeDaoImpl();
+   
+dao
+  SessionFactory factory = HibernateUtil.getSessionFactory();
