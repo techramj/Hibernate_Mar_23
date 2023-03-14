@@ -1,0 +1,16 @@
+get:
+emp = session.get(Employee.class, id);
+
+if employee exist it will return Employee object else it will return null
+eager loading
+
+
+load:
+emp = session.load(Employee.class, id);
+
+if employee exist it will return Employee object else it will throw exception
+you can use object only within the session.
+lazy loading
+
+
+session.byId(): it used to obtain a persistence object by it primary key
