@@ -1,0 +1,99 @@
+Hibernate:
+student should be aware of core java.
+Basic understanding of db/sql.
+
+
+
+step 1: download maven 
+url: https://maven.apache.org/download.cgi
+download:Binary zip archive
+download link: https://dlcdn.apache.org/maven/maven-3/3.9.0/binaries/apache-maven-3.9.0-bin.zip
+
+extract the zip file and save it in c drive.
+
+maven home: C:\apache-maven-3.8.4
+
+step 2: set up in system enviroment variable
+M2_HOME=<path of maven folder (parent of bin folder)>
+
+
+
+step 3: open <command/>
+check whether the maven setup is correct
+cmd mvn -version
+
+
+
+Step 4:create the maven project:
+
+
+
+step 2: add the dependencies
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.easylearning</groupId>
+	<artifactId>0000_hibernate_01</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>first-demo</name>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.15.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.1.0.0</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
+
+
+step 3:
+  open the terminal
+  mvn clean install
+
+
+
+step 4:
+hibernate.cfg.xml
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521/ORCLPDB</property>
+        <property name="connection.username">hr</property>
+        <property name="connection.password">hr</property>
+        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        
+        <mapping class="com.easylearning.entity.Employee"/>
+    </session-factory>
+</hibernate-configuration>
