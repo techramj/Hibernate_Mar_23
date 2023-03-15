@@ -4,10 +4,10 @@ step 2: execute the below query:
  create database seed_hibernate;
  
 #create the user: hr1  password:hr1
-create user 'hr1@localhost' identified by 'hr1';
+create user 'hr1'@'localhost' identified by 'hr1';
 
 #link user with db
-grant all privileges on seed_hibernate.* to 'hr1@localhost';
+grant all privileges on seed_hibernate.* to 'hr1'@'localhost';
         
 @access the db:seed_hibernate
 use seed_hibernate;
@@ -16,3 +16,16 @@ use seed_hibernate;
 repeat the same step as previous demo:
 only you need to update the configuration
 
+pom.xml
+remove oracle dependency and add the mysql dependency:
+<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.27</version>
+		</dependency>
+
+_________________________________________________________
+
+project
+once maven project is ready to use follow the below step for hibernate.
+step1: create hibernate.cfg.xml
