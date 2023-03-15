@@ -1,0 +1,18 @@
+step 1: download the mysql
+step 2: execute the below query:
+#create the db "seed_hibernate"
+ create database seed_hibernate;
+ 
+#create the user: hr1  password:hr1
+create user 'hr1@localhost' identified by 'hr1';
+
+#link user with db
+grant all privileges on seed_hibernate.* to 'hr1@localhost';
+        
+@access the db:seed_hibernate
+use seed_hibernate;
+
+
+repeat the same step as previous demo:
+only you need to update the configuration
+
