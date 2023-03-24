@@ -1,0 +1,15 @@
+
+1. Table per hierarchy
+     one column must be added to distinguish the row ie Discriminator
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue(value = "emp")
+public class Employee {
+
+
+}
+
+2. Table per concrete class
+
+
+3. Table per sub class
